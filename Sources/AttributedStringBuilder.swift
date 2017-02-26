@@ -34,6 +34,12 @@ public struct AttributedStringBuilder {
     return attributedString
   }
 
+  /// Makes copy of current attributedString.
+  /// - note: consequent calls to this method will return the same string. it doesn't reset state.
+  public func build() -> NSAttributedString {
+    return _storage.copy() as! NSAttributedString
+  }
+
   @discardableResult
   public mutating func append(_ string: String,
                               font: Font? = nil,

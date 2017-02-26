@@ -53,5 +53,15 @@ class AttributedStringBuilderTests: XCTestCase {
     XCTAssertTrue(result.containsAttachments)
   }
 
+  func testBuild() {
+    var builder = AttributedStringBuilder()
+    builder.append("Hello")
+    let result = builder.build()
+    XCTAssertEqual(result.string, "Hello")
+    builder.append("!")
+    let result2 = builder.build()
+    XCTAssertEqual(result2.string, "Hello!")
+  }
+
   // TODO: Test attributes
 }
